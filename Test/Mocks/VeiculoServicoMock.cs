@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Http.HttpResults;
 using MinimalApi.Dominio.Entidades;
 using MinimalApi.Dominio.Interfaces;
 using MinimalApi.DTOs;
@@ -16,7 +17,10 @@ public class VeiculoServicoMock : IVeiculoServico
     public void Atualizar(Veiculo veiculo)
     {
         // TODO: Atualizar veiculo em veiculos
-        // veiculos.
+        int indice = veiculos.FindIndex(v => v.Id == veiculo.Id);
+        veiculos[indice].Nome = veiculo.Nome;
+        veiculos[indice].Marca = veiculo.Marca;
+        veiculos[indice].Ano = veiculo.Ano;        
     }
 
     public Veiculo? BuscaPorId(int id)
